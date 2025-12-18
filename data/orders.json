@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1001,
+    "UserId": 1,
+    "ProductId": 201,
+    "quantity": 2,
+    "total": 39.98
+  },
+  {
+    "id": 1002,
+    "UserId": 2,
+    "ProductId": 202,
+    "quantity": 1,
+    "total": 24.50
+  },
+  {
+    "id": 1003,
+    "UserId": 1,
+    "ProductId": 204,
+    "quantity": 3,
+    "total": 38.97
+  },
+  {
+    "id": 1004,
+    "UserId": 4,
+    "ProductId": 203,
+    "quantity": 1,
+    "total": 18.00
+  },
+  {
+    "id": 1005,
+    "UserId": 2,
+    "ProductId": 205,
+    "quantity": 1,
+    "total": 22.50
+  }
+]
