@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "ehearl0",
+    "address": "Jl. Merdeka No. 1, Jakarta",
+    "UserId": 1
+  },
+  {
+    "id": 2,
+    "name": "scharte1",
+    "address": "Jl. Sudirman No. 10, Bandung",
+    "UserId": 2
+  },
+  {
+    "id": 3,
+    "name": "erisom2",
+    "address": "Jl. Gatot Subroto No. 25, Surabaya",
+    "UserId": 3
+  },
+  {
+    "id": 4,
+    "name": "egallen3",
+    "address": "Jl. Thamrin No. 5, Jakarta",
+    "UserId": 4
+  },
+  {
+    "id": 5,
+    "name": "rwarters4",
+    "address": "Jl. Asia Afrika No. 88, Bandung",
+    "UserId": 5
+  },
+  {
+    "id": 6,
+    "name": "fgladdifh5",
+    "address": "Jl. Pahlawan No. 12, Semarang",
+    "UserId": 6
+  },
+  {
+    "id": 7,
+    "name": "zmaudlen6",
+    "address": "Jl. Gajah Mada No. 33, Medan",
+    "UserId": 7
+  },
+  {
+    "id": 8,
+    "name": "tdavidovits7",
+    "address": "Jl. Diponegoro No. 77, Yogyakarta",
+    "UserId": 8
+  },
+  {
+    "id": 9,
+    "name": "gcaldayrou8",
+    "address": "Jl. Ahmad Yani No. 50, Surabaya",
+    "UserId": 9
+  },
+  {
+    "id": 10,
+    "name": "mmacon9",
+    "address": "Jl. Sudirman No. 100, Jakarta",
+    "UserId": 10
+  }
+]
