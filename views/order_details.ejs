@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Detail Pesanan Pelanggan</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5">
+        <h1>Riwayat Pesanan Pelanggan (Eager Loading)</h1>
+        <p class="mb-4">Menampilkan data pesanan, produk yang dibeli, dan profil pelanggan secara bersamaan.</p>
+
+        <% orders.forEach(order => { %>
+            <div class="card mb-3 shadow">
+                <div class="card-header bg-info text-white">
+                    <strong>Order ID: <%= order.id %></strong> | Tanggal: <%= order.createdAt.toDateString() %>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Detail Pelanggan</h5>
+                    <p class="card-text">
+                        **Nama:** <%= order.User.Profile ? order.User.Profile.name : 'N/A' %> <br>
+                        **Email:** <%= order.User.email %> <br>
+                        **Alamat:** <%= order.User.Profile ? order.User.Profile.address : 'N/A' %>
+                    </p>
+                    
+                    <hr>
+                    <h5 class="card-title">Detail Produk</h5>
+                    <p class="card-text">
+                        **Produk:** <%= order.Product ? order.Product.name : 'Produk Dihapus' %> <br>
+                        **Kuantitas:** <%= order.quantity %> pcs <br>
+                        **Total Harga:** Rp <%= order.total.toLocaleString('id-ID', { minimumFractionDigits: 2 }) %>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

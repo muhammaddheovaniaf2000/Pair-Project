@@ -1,37 +1,37 @@
 [
   {
-    "id": 201,
+    "id": 1,
     "name": "The Midnight Library",
     "description": "A dazzling novel about all the choices that go into a life well lived.",
-    "price": 19.99,
+    "price": 20000,
     "stock": 150
   },
   {
-    "id": 202,
+    "id": 2,
     "name": "Sapiens: A Brief History of Humankind",
     "description": "A groundbreaking narrative of humanity's creation and evolution.",
-    "price": 24.50,
+    "price": 24000,
     "stock": 90
   },
   {
-    "id": 203,
+    "id": 3,
     "name": "Astrophysics for People in a Hurry",
     "description": "Essential universe knowledge for those short on time.",
-    "price": 18.00,
+    "price": 18000,
     "stock": 110
   },
   {
-    "id": 204,
+    "id": 4,
     "name": "The Gruffalo",
     "description": "A children's book about a clever mouse and a monster.",
-    "price": 12.99,
+    "price": 12000,
     "stock": 200
   },
   {
-    "id": 205,
+    "id": 5,
     "name": "Dune",
     "description": "A science fiction masterpiece set on the desert planet Arrakis.",
-    "price": 22.50,
+    "price": 22000,
     "stock": 75
   }
 ]

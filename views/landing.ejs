@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Selamat Datang di Toko Buku</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5">
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Selamat Datang di Bookworm E-commerce</h1>
+                <p class="col-md-8 fs-4">Temukan ribuan buku dari berbagai kategori. Mulai dari fiksi hingga sains, kami punya semuanya. Login sekarang untuk mulai berbelanja!</p>
+                <a class="btn btn-primary btn-lg" href="/register" role="button">Daftar Sekarang</a>
+                <a class="btn btn-outline-secondary btn-lg" href="/login" role="button">Masuk</a>
+            </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>Koleksi Produk</h2>
+                    <p>Lihat katalog lengkap kami, urutkan berdasarkan harga, dan gunakan fitur pencarian untuk menemukan buku favorit Anda.</p>
+                    <a class="btn btn-outline-light" href="/products">Lihat Produk</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>Admin Dashboard</h2>
+                    <p>Khusus Administrator: Kelola data produk, kategori, dan lihat riwayat pesanan (Order Details - **Data Gabungan Eager Loading**).</p>
+                    <a class="btn btn-outline-secondary" href="/login">Login Admin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

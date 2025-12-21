@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Profil Saya</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="mb-4">Halaman Profil</h1>
+                
+                <div class="card shadow-lg mb-4">
+                    <div class="card-header text-white 
+                        <% if (role === 'admin') { %> bg-danger <% } else { %> bg-primary <% } %>">
+                        <h4>Informasi Akun (<%= role.toUpperCase() %>)</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Email:</strong> <%= user.email %></p>
+                        <p><strong>Nama Lengkap:</strong> <%= profile.name %></p>
+                        <p><strong>Alamat:</strong> <%= profile.address %></p>
+                    </div>
+                </div>
+
+                <% if (role === 'admin') { %>
+                    <div class="alert alert-danger text-center">
+                        <h4>ADMINISTRATOR DASHBOARD</h4>
+                        <p>Anda memiliki hak akses penuh ke sistem.</p>
+                    </div>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            Menu Administrasi
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Manajemen Produk</h5>
+                            <p class="card-text">Lihat, tambahkan, dan hapus semua produk dalam sistem.</p>
+                            
+                            <a href="/products" class="btn btn-danger me-2">
+                                <i class="fas fa-trash-alt"></i> Kelola & Hapus Produk
+                            </a>
+                            
+                            <a href="/admin/orders" class="btn btn-secondary">
+                                Kelola Pesanan
+                            </a>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="alert alert-info">
+                        Anda adalah pelanggan. Silakan jelajahi katalog kami!
+                        <a href="/products" class="btn btn-sm btn-info ms-2">Lihat Produk</a>
+                    </div>
+                <% } %>
+                
+                <a href="/logout" class="btn btn-outline-secondary w-100 mt-3">Logout</a>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> </body>
+</html>

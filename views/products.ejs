@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Katalog Produk</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Katalog Produk</h1>
+        
+        <% if (typeof msg !== 'undefined' && msg) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-8">
+                <form action="/products" method="GET" class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Cari berdasarkan nama buku..." aria-label="Search" name="search" value="<%= search || '' %>">
+                    
+                    <select class="form-select me-2" name="sortBy" aria-label="Sort By">
+                        <option value="">Urutkan (Default)</option>
+                        <option value="priceAsc" <%= sortBy === 'priceAsc' ? 'selected' : '' %>>Harga Termurah</option>
+                        <option value="priceDesc" <%= sortBy === 'priceDesc' ? 'selected' : '' %>>Harga Termahal</option>
+                    </select>
+
+                    <button class="btn btn-primary" type="submit">Cari</button>
+                    <a href="/products" class="btn btn-outline-secondary ms-2">Reset</a>
+                </form>
+            </div>
+            
+            <div class="col-md-4 text-end">
+                <% if (typeof role !== 'undefined' && role === 'admin') { %>
+                    <a href="/products/add" class="btn btn-success">
+                        + Tambah Produk Baru
+                    </a>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% data.forEach(el => { %>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><%= el.name %></h5>
+                            
+                            <% if (el.Categories && el.Categories.length > 0) { %>
+                                <p class="card-subtitle mb-2 text-muted">
+                                    Kategori: 
+                                    <% el.Categories.forEach(cat => { %>
+                                        <span class="badge bg-secondary"><%= cat.name %></span>
+                                    <% }) %>
+                                </p>
+                            <% } %>
+                            
+                            <p class="card-text"><%= el.description.substring(0, 100) %>...</p>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <h4 class="text-danger mb-1"><%= el.formattedPrice %></h4> 
+                            <p class="text-success small">Stok: <%= el.stock %></p>
+                            
+                            <% if (typeof role !== 'undefined' && role) { %>
+                                <a href="/buy/<%= el.id %>" class="btn btn-success btn-sm me-2">Beli Sekarang</a>
+                            <% } else { %>
+                                <a href="/login" class="btn btn-secondary btn-sm me-2">Login untuk Beli</a>
+                            <% } %>
+
+                            <% if (typeof role !== 'undefined' && role === 'admin') { %>
+                                <a href="/products/edit/<%= el.id %>" class="btn btn-warning btn-sm me-2">
+                                    Edit
+                                </a>
+                                <a href="/products/delete/<%= el.id %>" 
+                                   class="btn btn-danger btn-sm" 
+                                   onclick="return confirm('Anda yakin ingin menghapus produk ini?')">
+                                    Hapus
+                                </a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <% if (data.length === 0) { %>
+            <div class="alert alert-warning text-center mt-5">
+                Produk tidak ditemukan berdasarkan kriteria pencarian/filter Anda.
+            </div>
+        <% } %>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

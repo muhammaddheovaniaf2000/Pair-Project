@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Tambah Produk Baru</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5">
+        <h1>Tambah Produk Baru</h1>
+        <hr>
+
+        <% if (errors && errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <strong>Gagal menambahkan produk:</strong>
+                <ul>
+                    <% errors.forEach(err => { %>
+                        <li><%= err %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+
+        <form action="/products/add" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama Produk</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="price" class="form-label">Harga (IDR)</label>
+                    <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="stock" class="form-label">Stok</label>
+                    <input type="number" class="form-control" id="stock" name="stock" required>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="categories" class="form-label">Kategori (Pilih satu atau lebih)</label>
+                <select class="form-select" id="categories" name="CategoryIds" multiple required>
+                    <% categories.forEach(cat => { %>
+                        <option value="<%= cat.id %>"><%= cat.name %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Simpan Produk</button>
+            <a href="/products" class="btn btn-secondary">Batal</a>
+        </form>
+    </div>
+</body>
+</html>

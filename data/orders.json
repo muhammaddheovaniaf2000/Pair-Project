@@ -1,36 +1,36 @@
 [
   {
-    "id": 1001,
+    "id": 1,
     "UserId": 1,
-    "ProductId": 201,
+    "ProductId": 1,
     "quantity": 2,
     "total": 39.98
   },
   {
-    "id": 1002,
+    "id": 2,
     "UserId": 2,
-    "ProductId": 202,
+    "ProductId": 2,
     "quantity": 1,
     "total": 24.50
   },
   {
-    "id": 1003,
+    "id": 3,
     "UserId": 1,
-    "ProductId": 204,
+    "ProductId": 3,
     "quantity": 3,
     "total": 38.97
   },
   {
-    "id": 1004,
+    "id": 4,
     "UserId": 4,
-    "ProductId": 203,
+    "ProductId": 4,
     "quantity": 1,
     "total": 18.00
   },
   {
-    "id": 1005,
+    "id": 5,
     "UserId": 2,
-    "ProductId": 205,
+    "ProductId": 5,
     "quantity": 1,
     "total": 22.50
   }

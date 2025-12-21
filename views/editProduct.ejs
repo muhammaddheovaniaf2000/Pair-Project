@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Edit Produk: <%= product.name %></title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5">
+        <h1>Edit Produk: <%= product.name %></h1>
+        <hr>
+
+        <% if (errors && errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <strong>Gagal memperbarui produk:</strong>
+                <ul>
+                    <% errors.forEach(err => { %>
+                        <li><%= err %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+
+        <form action="/products/edit/<%= product.id %>" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama Produk</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required><%= product.description %></textarea>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="price" class="form-label">Harga (IDR)</label>
+                    <input type="number" class="form-control" id="price" name="price" step="0.01" value="<%= product.price.toString() %>" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="stock" class="form-label">Stok</label>
+                    <input type="number" class="form-control" id="stock" name="stock" value="<%= product.stock %>" required>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="categories" class="form-label">Kategori (Pilih satu atau lebih)</label>
+                <select class="form-select" id="categories" name="CategoryIds" multiple required>
+                    <% categories.forEach(cat => { %>
+                        <% 
+                            // Logika: Cek apakah ID kategori ini sudah ada di daftar kategori produk yang diedit
+                            const isSelected = product.Categories.some(prodCat => prodCat.id === cat.id);
+                        %>
+                        <option value="<%= cat.id %>" <%= isSelected ? 'selected' : '' %>><%= cat.name %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-warning">Update Produk</button>
+            <a href="/products" class="btn btn-secondary">Batal</a>
+        </form>
+    </div>
+</body>
+</html>
